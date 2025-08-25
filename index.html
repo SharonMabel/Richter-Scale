@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S. M. Holierre - Author</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <meta name="description" content="S. M. Holierre — Author of 'The Richter Scale'. Upmarket financial thriller meets contemporary romance." />
+  <meta property="og:title" content="S. M. Holierre — Author" />
+  <meta property="og:description" content="Upmarket financial thriller meets contemporary romance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="trs.png" />
+  <meta name="theme-color" content="#0f1b1d" />
+
+  <style>
+    :root{
+      --bg:#0c0f12;                 /* deep charcoal */
+      --ink:#e9ecef;                /* light text */
+      --muted:#9aa3ab;              /* secondary text */
+      --jade:#2aa198;               /* emerald/jade accent */
+      --silver:#c0c7cf;             /* silver accent */
+      --glass: rgba(12, 15, 18, .45);
+      --glass-border: rgba(42,161,152,.2);
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    
+    /* --- HIER IST DIE KORREKTUR (Teil 1) --- */
+    html {
+      background-color: var(--bg);
+    }
+    html,body{height:100%}
+
+    body{
+      margin:0;
+      font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      /* Hintergrundfarbe wurde entfernt, damit das Bild dahinter sichtbar wird */
+      color:var(--ink);
+      line-height:1.7;
+      position:relative;
+    }
+    /* dark radial vignette */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(0,0,0,.0), rgba(0,0,0,.55) 55%, rgba(0,0,0,.85) 85%),
+        linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.75) 100%);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    /* Wasserzeichen mit korrigierter URL */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background-image: url('https://sharonmabel.github.io/Richter-Scale/trs.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.04;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* floating noise for subtle texture */
+    .grain{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      opacity:.18;
+      mix-blend-mode:soft-light;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\'160\' height=\'160\' viewBox=\'0 0 160 160\'><filter id=\'n\' x=\'0\' y=\'0\'><feTurbulence baseFrequency=\'0.8\' numOctaves=\'2\' seed=\'2\' type=\'fractalNoise\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23n)\' opacity=\'0.8\'/></svg>');
+      z-index:-1;
+    }
+
+    /* NAV */
+    nav{
+      position:fixed; inset:0 0 auto 0; height:68px;
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter:saturate(120%) blur(10px);
+      -webkit-backdrop-filter: saturate(120%) blur(10px);
+      background: rgba(10,14,17,.35);
+      border-bottom:1px solid var(--glass-border);
+      z-index:10;
+    }
+    .nav-inner{display:flex; gap:28px}
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:500;
+      letter-spacing:.3px;
+      transition:color .25s ease, transform .25s ease;
+    }
+    nav a:hover{color:var(--jade); transform:translateY(-1px)}
+
+    /* LAYOUT */
+    .container{max-width:980px; margin:0 auto; padding:90px 20px}
+    .card{
+      background:linear-gradient(180deg, rgba(18,22,26,.65), rgba(18,22,26,.55));
+      border:1px solid var(--glass-border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding:40px;
+      margin-bottom:36px;
+    }
+
+    /* HERO */
+    header.hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding-top:68px; /* nav offset */
+    }
+    .hero-inner{display:flex; flex-direction:column; align-items:center; gap:18px}
+    .portrait{
+      width:168px; height:168px; border-radius:50%;
+      border:2px solid var(--silver);
+      background:rgba(255,255,255,.05);
+      box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 0 40px rgba(255,255,255,.06);
+      object-fit:cover;
+    }
+    h1.name{
+      margin:0;
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2.6rem, 6vw, 4.2rem);
+      letter-spacing:.5px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.55);
+    }
+    .realname{
+      color:var(--muted);
+      margin-top:-8px;
+      letter-spacing:.6px;
+      font-size:clamp(0.95rem, 2vw, 1.1rem);
+      font-weight:300;
+    }
+    .pitch{
+      font-family:'Playfair Display', serif;
+      font-style:italic;
+      max-width:700px;
+      margin:10px auto 0;
+      font-size:clamp(1.05rem, 2.4vw, 1.35rem);
+      color:var(--ink);
+      border-left:2px solid var(--jade);
+      padding-left:18px;
+      text-shadow:0 1px 6px rgba(0,0,0,.35);
+    }
+
+    /* SECTION TITLES */
+    .title{
+      font-family:'Playfair Display', serif;
+      font-size:2.3rem;
+      margin:0 0 18px 0;
+      position:relative;
+    }
+    .title::after{
+      content:"";
+      position:absolute; left:0; bottom:-8px; width:64px; height:2px;
+      background:linear-gradient(90deg, var(--jade), transparent 80%);
+    }
+
+    p{margin:0 0 1rem 0; font-weight:300; font-size:1.06rem}
+    strong{color:var(--jade); font-weight:600}
+
+    /* Manuscript stats pills */
+    .stats{
+      display:flex; gap:12px; flex-wrap:wrap;
+      padding:12px;
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      margin:0 0 20px 0;
+      background:rgba(0,0,0,.15);
+    }
+    .stats span{
+      padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,.06);
+      font-size:.92rem;
+      border:1px solid rgba(192,199,207,.12);
+      white-space:nowrap;
+    }
+
+    .hook{
+      font-family:'Playfair Display', serif;
+      font-style:italic;
+      font-size:1.22rem;
+      border-left:2px solid var(--jade);
+      padding-left:14px;
+      margin:18px 0 22px 0;
+    }
+
+    .btn{
+      display:inline-block; cursor:pointer;
+      padding:12px 26px;
+      border-radius:999px;
+      border:1px solid var(--jade);
+      background:linear-gradient(180deg, rgba(42,161,152,.95), rgba(42,161,152,.75));
+      color:#071013;
+      font-weight:700;
+      text-decoration:none;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 22px rgba(42,161,152,.35);
+      background:transparent;
+      color:var(--jade);
+    }
+
+    /* CONTACT */
+    .contact li{list-style:none; margin:.4rem 0; font-size:1.06rem}
+    .contact a{color:var(--ink); text-decoration:none; border-bottom:1px dotted rgba(234,238,242,.25)}
+    .contact a:hover{color:var(--jade)}
+
+    /* Footer */
+    footer{color:var(--muted); text-align:center; padding:46px 20px; font-size:.95rem}
+
+    /* Responsive tweaks */
+    @media (max-width:640px){
+      .card{padding:26px}
+      .pitch{padding-left:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#manuscript">Manuscript</a>
+      <a href="#projects">Other Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <img class="portrait" src="" alt="Author portrait placeholder" />
+      <div>
+        <h1 class="name">S. M. Holierre</h1>
+        <div class="realname">Sharon Mabel Pierre</div>
+      </div>
+      <p class="pitch">
+        A high-stakes financial thriller meets a slow-burn contemporary romance, exploring found family, power dynamics, and the true price of authenticity.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="container">
+      <div class="card">
+        <h2 class="title">About Me</h2>
+        <p>S. M. Holierre is a bilingual BiPoC author based in Germany. Years of work in the therapeutic field with emotionally challenged youth have shaped her fascination with human defense mechanisms and the psychology behind power dynamics.</p>
+        <p>This experience informs her stories, where she explores the complex dynamics of found families—how people choose to anchor each other when traditional structures fail. She delves into the lives of characters in high-stakes situations, focusing on the universal search for a place where one can exist without a mask.</p>
+      </div>
+    </section>
+
+    <section id="manuscript" class="container">
+      <div class="card">
+        <h2 class="title">The Richter Scale</h2>
+
+        <div class="stats">
+          <span><strong>Genre:</strong> Upmarket Financial Thriller / Contemporary Romance</span>
+          <span><strong>Word Count:</strong> ~80,000</span>
+          <span><strong>Status:</strong> Complete &amp; Polished</span>
+        </div>
+
+        <p class="hook">To save his mentor's empire, a brilliant financial analyst must get close to the unpredictable heir of a rival dynasty. But in a world of secrets, the greatest risk isn't losing money—it's trusting the one person he's supposed to destroy.</p>
+
+        <h3 style="margin:0 0 10px 0; font-family:'Montserrat'; letter-spacing:.2px;">Blurb</h3>
+        <p>When an anonymous leak threatens the empire of his mentor, Jon Carver, brilliant financial analyst Lucas Castro doesn't hesitate. He answers the call of his found family, flying to Switzerland only to find himself at the center of a conspiracy that goes far beyond tax evasion.</p>
+        <p>His investigation leads him straight to Bençe Richter, the enigmatic heir of a rival clan and the key to the entire affair. What starts as a strategic analysis quickly becomes a dangerous psychological duel. In the glittering, ice-cold world of St. Moritz, Lucas must decide who he can trust while an unexpected attraction threatens to break all the rules. "The Richter Scale" is a gripping thriller about the power of loyalty, the price of truth, and the discovery that the most dangerous tremors aren't financial.</p>
+
+        <a class="btn" href="#" download>Download First Five Chapters (PDF)</a>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <div class="card">
+        <h2 class="title">A Connected Universe</h2>
+        <p>Every couple featured as main cast in "The Richter Scale" has their own story to tell. Jon and Ari's journey unfolds over three manuscripts, Lucas and Bençe's story is the one you are reading now, and Maxwell and André's story is waiting to be told.</p>
+        <p>This is a universe I am deeply committed to exploring, with a rich backlog of completed and planned works that I am excited to develop further.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="card">
+        <h2 class="title">Contact</h2>
+        <p>For professional inquiries, please feel free to reach out.</p>
+        <ul class="contact">
+          <li><strong>Email:</strong> <a href="mailto:smriewe94@gmail.com">smriewe94@gmail.com</a></li>
+          <li><strong>Discord:</strong> @riewewrites</li>
+          <li><strong>X (Twitter):</strong> <a href="https://twitter.com/AmGer75778" target="_blank" rel="noopener">@AmGer75778</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 S. M. Holierre (Sharon Mabel Pierre)
+  </footer>
+</body>
+</html>
