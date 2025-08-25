@@ -29,21 +29,20 @@
     }
     *{box-sizing:border-box}
     
-    /* --- HIER IST DIE KORREKTUR (Teil 1) --- */
     html {
       background-color: var(--bg);
+      scroll-behavior: smooth; /* Sorgt für sanftes Scrollen bei Klick auf Nav-Links */
     }
     html,body{height:100%}
 
     body{
       margin:0;
       font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
-      /* Hintergrundfarbe wurde entfernt, damit das Bild dahinter sichtbar wird */
       color:var(--ink);
       line-height:1.7;
       position:relative;
     }
-    /* dark radial vignette */
+    
     body::before{
       content:"";
       position:fixed;
@@ -55,25 +54,23 @@
       z-index:-1;
     }
 
-    /* Wasserzeichen mit korrigierter URL */
     body::after {
       content: '';
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
+      width: 700px;
+      height: 700px;
       background-image: url('https://sharonmabel.github.io/Richter-Scale/trs.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      opacity: 0.04;
-      z-index: -2;
+      opacity: 0.5;
+      z-index: -1;
       pointer-events: none;
     }
 
-    /* floating noise for subtle texture */
     .grain{
       pointer-events:none;
       position:fixed;
@@ -84,7 +81,6 @@
       z-index:-1;
     }
 
-    /* NAV */
     nav{
       position:fixed; inset:0 0 auto 0; height:68px;
       display:flex; align-items:center; justify-content:center;
@@ -104,7 +100,6 @@
     }
     nav a:hover{color:var(--jade); transform:translateY(-1px)}
 
-    /* LAYOUT */
     .container{max-width:980px; margin:0 auto; padding:90px 20px}
     .card{
       background:linear-gradient(180deg, rgba(18,22,26,.65), rgba(18,22,26,.55));
@@ -117,7 +112,6 @@
       margin-bottom:36px;
     }
 
-    /* HERO */
     header.hero{
       min-height:100vh;
       display:grid;
@@ -159,7 +153,6 @@
       text-shadow:0 1px 6px rgba(0,0,0,.35);
     }
 
-    /* SECTION TITLES */
     .title{
       font-family:'Playfair Display', serif;
       font-size:2.3rem;
@@ -175,7 +168,6 @@
     p{margin:0 0 1rem 0; font-weight:300; font-size:1.06rem}
     strong{color:var(--jade); font-weight:600}
 
-    /* Manuscript stats pills */
     .stats{
       display:flex; gap:12px; flex-wrap:wrap;
       padding:12px;
@@ -219,19 +211,17 @@
       color:var(--jade);
     }
 
-    /* CONTACT */
     .contact li{list-style:none; margin:.4rem 0; font-size:1.06rem}
     .contact a{color:var(--ink); text-decoration:none; border-bottom:1px dotted rgba(234,238,242,.25)}
     .contact a:hover{color:var(--jade)}
 
-    /* Footer */
     footer{color:var(--muted); text-align:center; padding:46px 20px; font-size:.95rem}
 
-    /* Responsive tweaks */
     @media (max-width:640px){
       .card{padding:26px}
       .pitch{padding-left:14px}
     }
+
   </style>
 </head>
 <body>
@@ -248,7 +238,7 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <img class="portrait" src="" alt="Author portrait placeholder" />
+      <img class="portrait" src="https://sharonmabel.github.io/Richter-Scale/me.jpg" alt="Portrait of S. M. Holierre" />
       <div>
         <h1 class="name">S. M. Holierre</h1>
         <div class="realname">Sharon Mabel Pierre</div>
@@ -276,6 +266,7 @@
           <span><strong>Genre:</strong> Upmarket Financial Thriller / Contemporary Romance</span>
           <span><strong>Word Count:</strong> ~80,000</span>
           <span><strong>Status:</strong> Complete &amp; Polished</span>
+          <span><strong>Ending:</strong> HFN</span>
         </div>
 
         <p class="hook">To save his mentor's empire, a brilliant financial analyst must get close to the unpredictable heir of a rival dynasty. But in a world of secrets, the greatest risk isn't losing money—it's trusting the one person he's supposed to destroy.</p>
@@ -284,17 +275,22 @@
         <p>When an anonymous leak threatens the empire of his mentor, Jon Carver, brilliant financial analyst Lucas Castro doesn't hesitate. He answers the call of his found family, flying to Switzerland only to find himself at the center of a conspiracy that goes far beyond tax evasion.</p>
         <p>His investigation leads him straight to Bençe Richter, the enigmatic heir of a rival clan and the key to the entire affair. What starts as a strategic analysis quickly becomes a dangerous psychological duel. In the glittering, ice-cold world of St. Moritz, Lucas must decide who he can trust while an unexpected attraction threatens to break all the rules. "The Richter Scale" is a gripping thriller about the power of loyalty, the price of truth, and the discovery that the most dangerous tremors aren't financial.</p>
 
-        <a class="btn" href="#" download>Download First Five Chapters (PDF)</a>
+        <a class="btn" href="TRS first 5 Chapters.docx" download>Download First Five Chapters (PDF)</a>
       </div>
     </section>
 
     <section id="projects" class="container">
-      <div class="card">
-        <h2 class="title">A Connected Universe</h2>
-        <p>Every couple featured as main cast in "The Richter Scale" has their own story to tell. Jon and Ari's journey unfolds over three manuscripts, Lucas and Bençe's story is the one you are reading now, and Maxwell and André's story is waiting to be told.</p>
-        <p>This is a universe I am deeply committed to exploring, with a rich backlog of completed and planned works that I am excited to develop further.</p>
-      </div>
-    </section>
+  <div class="card">
+    <h2 class="title">A Connected Universe</h2>
+    <p>Every couple featured as main cast in "The Richter Scale" has their own story to tell. The following pairs form the heart of this interconnected universe:</p>
+    <ul class="universe-list">
+      <li>Jon and Ari’s journey unfolds over three manuscripts, weaving a tale of loyalty and sacrifice.</li>
+      <li>Lucas and Bençe’s story is the one you are reading now, a thrilling dance of trust and betrayal.</li>
+      <li>Maxwell and André’s story is waiting to be told, promising a deep exploration of ambition and connection.</li>
+    </ul>
+    <p>This is a universe I am deeply committed to exploring, with a rich backlog of completed and planned works that I am excited to develop further.</p>
+  </div>
+</section>
 
     <section id="contact" class="container">
       <div class="card">
